@@ -29,7 +29,7 @@ function displayCommits() {
 }
 
 function getBranches(el) {
-  const URL = el.dataset.url.split('{')
+  const URL = el.dataset.url.split('{')[0]
   debugger
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayBranches)
