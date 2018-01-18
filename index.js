@@ -25,7 +25,7 @@ function displayRepositories() {
 }
 
 function getCommits(el) {
-  const url = "https://api.github.com/repos/" + el.dataset.username + "/" + el.dataset.repoName + "/commits"
+  const url = "https://api.github.com/repos/" + el.dataset.username + "/" + el.dataset.repository + "/commits"
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayCommits)
   req.open("GET", `${url}/commits`)
@@ -42,7 +42,7 @@ function displayCommits() {
 function getBranches(el) {
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayBranches)
-  req.open("GET", "https://api.github.com/repos/" + el.dataset.username + "/" + el.dataset.repoName + "/branches")
+  req.open("GET", "https://api.github.com/repos/" + el.dataset.username + "/" + el.dataset.repository + "/branches")
   req.send()
 }
 
