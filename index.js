@@ -31,6 +31,7 @@ function getBranches(el) {
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayBranches)
   req.open("GET", `${el.dataset.branches_url}`)
+  debugger
   req.send()
 }
 
