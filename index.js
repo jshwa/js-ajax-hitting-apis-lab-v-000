@@ -15,18 +15,20 @@ function displayRepositories() {
     return (`
       <li>
         <h2>${repo.name}</h2>
-        <a href="${repo.html_url}">${repo.html_url}</a><br>
+        <a href="${repo.html_url}">URL</a><br>
         <a href="#" ${dataRepoName} ${dataUsername} onclick="getCommits(this)">Get Commits</a><br>
         <a href="#" ${dataRepoName} ${dataUsername} onclick="getBranches(this)">Get Branches</a></li>
       </li>
       `)
+    }
   document.getElementById("repositories").innerHTML = repoList
 }
 
 function getCommits(el) {
+  const url = rootURL + "/repos/" + el.dataset.username + "/" + repoName + "/commits"
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayCommits)
-  req.open("GET", `${el.dataset.url}/commits`)
+  req.open("GET", `${url}/commits`)
   req.send()
 }
 
