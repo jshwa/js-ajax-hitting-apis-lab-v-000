@@ -33,7 +33,6 @@ function getBranches(el) {
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayBranches)
   req.open("GET", url)
-  debugger
   req.send()
 }
 
