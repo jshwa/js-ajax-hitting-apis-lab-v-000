@@ -29,10 +29,10 @@ function displayCommits() {
 }
 
 function getBranches(el) {
-
+  const url = el.dataset.url
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayBranches)
-  req.open("GET", el.dataset.url)
+  req.open("GET", url)
   req.send()
 }
 
