@@ -1,6 +1,5 @@
 function getRepositories() {
   const username = document.getElementById("username").value;
-  debugger
   console.log(username)
   const req = new XMLHttpRequest();
   req.addEventListener("load", showRepositories);
