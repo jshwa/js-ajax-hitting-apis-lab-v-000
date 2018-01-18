@@ -32,7 +32,7 @@ function getBranches(el) {
 
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayBranches)
-  req.open("GET", url)
+  req.open("GET", el.dataset.url)
   req.send()
 }
 
