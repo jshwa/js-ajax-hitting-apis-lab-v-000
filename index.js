@@ -8,12 +8,12 @@ function getRepositories() {
 
 function showRepositories() {
   var repos = JSON.parse(this.responseText)
-  const repoList = `<ul>${repos.map(r => '<li>' + r.name + '- <a href="'+ r.html_url + '" target=_blank>URL</a> - <a href="#" data-repo="' + r.name + '" data-url="' + r.url + '" onclick="getCommits(this)">Get Commits</a></li>').join('')}</ul>`
+  const repoList = `<ul>${repos.map(r => 
+    '<li>' + r.name + '- <a href="'+ r.html_url + '" target=_blank>URL</a> - <a href="#" data-url="' + r.url + '" onclick="getCommits(this)">Get Commits</a> - <a href="#" data-repo="' + r.branches_url + '" onclick="getBranches(this)">Get Branches</a></li>').join('')}</ul>`
   document.getElementById("repositories").innerHTML = repoList
 }
 
 function getCommits(el) {
-  const name = el.dataset.repo
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayCommits)
   req.open("GET", `${el.dataset.url}/commits`)
@@ -25,4 +25,8 @@ function displayCommits() {
   console.log(this.responseText)
   const commitsList = `<ul>${commits.map(commit => '<li><strong>' + commit.author.login + '</strong> - ' + commit.commit.author.name + ' - ' + commit.commit.message + '</li>').join('')}</ul>`
   document.getElementById("details").innerHTML = commitsList
+}
+
+function getBranches() {
+  
 }
