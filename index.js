@@ -9,7 +9,7 @@ function getRepositories() {
 function displayRepositories() {
   var repos = JSON.parse(this.responseText)
   console.log(this.responseText)
-  const repoList = `<ul>${repos.map(r => {
+  const repoList = "<ul>" + repos.map(r => {
     const dataUsername = 'data-username="' + repo.owner.login + '"'
     const dataRepoName = 'data-repository="' + repo.name + '"'
     return (`
