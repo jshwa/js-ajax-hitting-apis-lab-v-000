@@ -17,7 +17,7 @@ function displayRepositories() {
 function getCommits(el) {
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayCommits)
-  req.open("GET", el.dataset.url + "/commits")
+  req.open("GET", `${el.dataset.url}/commits`)
   req.send()
 }
 
