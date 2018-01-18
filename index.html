@@ -22,8 +22,10 @@
     </head>
     <body>
     <main id="main">
-      <form onsubmit="getRepositories()">
+      <form onsubmit="getRepositories();return false;">
         Username: <input type="text">
+        <input type="submit">
+      </form>
     </main>
     <div class="flexbox-container">
       <div>
