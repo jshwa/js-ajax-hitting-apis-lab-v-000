@@ -33,3 +33,10 @@ function getBranches(el) {
   req.open("GET", el.dataset.branches_url)
   req.send()
 }
+
+function displayBranches() {
+  const branches = JSON.parse(this.responseText)
+  console.log(this.responseText)
+  const branchesList = `<ul>${branches.map(branch => '<li>' + branch.name + '</li>').join('')}</ul>`
+  document.getElementById("details").innerHTML = branchesList
+}
